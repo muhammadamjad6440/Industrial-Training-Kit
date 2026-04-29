@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Training Kit | Project 1</title>
+    <meta name="description" content="A premium digital entry point built with semantic HTML, responsive CSS, and pure JavaScript.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">D</span>
+                    <span class="logo-text">DecodeLabs</span>
+                </div>
+                <button class="close-sidebar" id="closeSidebar">&times;</button>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#dashboard" class="active"><i class="icon-dashboard"></i> Dashboard</a></li>
+                    <li><a href="#projects"><i class="icon-projects"></i> Projects</a></li>
+                    <li><a href="#milestones"><i class="icon-milestones"></i> Milestones</a></li>
+                    <li><a href="#resources"><i class="icon-resources"></i> Resources</a></li>
+                    <li><a href="#settings"><i class="icon-settings"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">MA</div>
+                    <div class="user-info">
+                        <span class="name">Muhammad Amjad</span>
+                        <span class="role">Full-Stack Intern</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <button class="menu-toggle" id="menuToggle">&#9776;</button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search projects or milestones...">
+                </div>
+                <div class="header-actions">
+                    <div class="notification-wrapper">
+                        <button class="btn-icon notification-btn" id="notificationBtn">
+                            <span class="badge">3</span>
+                        </button>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="dropdown-header">
+                                <h3>Notifications</h3>
+                                <button class="clear-all">Clear All</button>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item">
+                                    <div class="notif-dot"></div>
+                                    <div class="notif-content">
+                                        <p><strong>Project 1</strong> is 75% complete!</p>
+                                        <span>2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notif-dot"></div>
+                                    <div class="notif-content">
+                                        <p>New resource added: <strong>CSS Grid Mastery</strong></p>
+                                        <span>5 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notif-dot"></div>
+                                    <div class="notif-content">
+                                        <p>Welcome to <strong>DecodeLabs</strong> training!</p>
+                                        <span>Yesterday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-primary" id="topAddBtn">New Project</button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Dashboard View -->
+                <section id="dashboard-view" class="app-view active">
+                    <div class="hero-section">
+                        <h1>Welcome Back, Architect</h1>
+                        <p>Your journey to becoming a professional developer continues here.</p>
+                    </div>
+
+                    <section class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-value">Project 1</span>
+                            <span class="stat-label">Current Milestone</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="overall-progress">75%</span>
+                            <span class="stat-label">Progress</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Resources Read</span>
+                        </div>
+                    </section>
+
+                    <div class="section-header">
+                        <h2>Recent Projects</h2>
+                    </div>
+                    <div class="project-grid" id="dashboard-projects">
+                        <!-- Projects will be mirrored here -->
+                    </div>
+                </section>
+
+                <!-- Projects View -->
+                <section id="projects-view" class="app-view">
+                    <div class="section-header">
+                        <h1>My Projects</h1>
+                        <button class="btn-primary" id="addProjectBtn">Create New</button>
+                    </div>
+                    <div class="project-grid" id="main-project-grid">
+                        <article class="project-card" data-id="1">
+                            <div class="card-image project-1-img"></div>
+                            <div class="card-body">
+                                <span class="tag tag-active">In Progress</span>
+                                <h3>Digital Entry Point</h3>
+                                <p>Building a flexible, responsive frontend using pure HTML, CSS, and JS.</p>
+                                <div class="card-footer">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%;"></div>
+                                    </div>
+                                    <span class="progress-text">75% Complete</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="project-card locked" data-id="2">
+                            <div class="card-image project-2-img"></div>
+                            <div class="card-body">
+                                <span class="tag tag-locked">Locked</span>
+                                <h3>Advanced State Management</h3>
+                                <p>Mastering complex application logic without external libraries.</p>
+                                <div class="card-footer">
+                                    <span class="unlock-req">Requires Project 1 Completion</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Milestones View -->
+                <section id="milestones-view" class="app-view">
+                    <h1>Course Milestones</h1>
+                    <div class="milestone-timeline">
+                        <div class="milestone-item completed">
+                            <div class="milestone-dot"></div>
+                            <div class="milestone-info">
+                                <h3>Discovery & Wireframing</h3>
+                                <p>Defining project scope and layout structure.</p>
+                                <span class="date">Completed: April 15, 2026</span>
+                            </div>
+                        </div>
+                        <div class="milestone-item active">
+                            <div class="milestone-dot"></div>
+                            <div class="milestone-info">
+                                <h3>Semantics & Style</h3>
+                                <p>Implementing HTML5 landmarks and 2025 Palette.</p>
+                                <span class="date">Due: May 02, 2026</span>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <div class="milestone-dot"></div>
+                            <div class="milestone-info">
+                                <h3>Logic & Interactivity</h3>
+                                <p>Adding pure JS functionality and state management.</p>
+                                <span class="date">Due: May 15, 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resources View -->
+                <section id="resources-view" class="app-view">
+                    <h1>Learning Resources</h1>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3>MDN: Semantic HTML</h3>
+                            <p>Deep dive into landmarks and accessible structure.</p>
+                            <a href="#" class="btn-secondary">Read Guide</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>CSS Grid Mastery</h3>
+                            <p>Learning complex layouts with pure CSS Grid.</p>
+                            <a href="#" class="btn-secondary">Watch Video</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings View -->
+                <section id="settings-view" class="app-view">
+                    <h1>Settings</h1>
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <h3>Appearance</h3>
+                            <div class="setting-item">
+                                <span>Dark Mode</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="themeToggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <h3>Profile</h3>
+                            <div class="setting-item">
+                                <label>Full Name</label>
+                                <input type="text" value="Muhammad Amjad">
+                            </div>
+                            <button class="btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- New Project Modal -->
+            <div id="projectModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Add New Project</h2>
+                    <form id="newProjectForm">
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" id="projectTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="projectDesc" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Project</button>
+                    </form>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <p>&copy; 2026 DecodeLabs Industrial Training. All rights reserved.</p>
+                        <div class="contact-strip">
+                            <span>📍 Lucknow, India</span>
+                            <span>✉ decodelabs.tech@gmail.com</span>
+                            <span>🌐 www.decodelabs.tech</span>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
